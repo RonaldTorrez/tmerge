@@ -1,11 +1,11 @@
 import { includeIgnoreFile } from '@eslint/compat'
 import stylistic from '@stylistic/eslint-plugin'
+import eslintPluginUnicorn from 'eslint-plugin-unicorn'
 import path from 'node:path'
-import { dirname } from 'path'
-import { fileURLToPath } from 'url'
+import { fileURLToPath } from 'node:url'
 
 const __filename = fileURLToPath( import.meta.url )
-const __dirname = dirname( __filename )
+const __dirname = path.dirname( __filename )
 const gitignorePath = path.resolve( __dirname, '.gitignore' )
 
 const rulePaddingLine1 = [ 'try', 'function', 'return', 'if', 'export' ]
@@ -13,6 +13,7 @@ const rulePaddingLine2 = [ 'const', 'import' ]
 
 const eslintConfig = [
     includeIgnoreFile( gitignorePath ),
+    eslintPluginUnicorn.configs.all,
     {
         plugins: {
             '@stylistic': stylistic,
@@ -29,6 +30,12 @@ const eslintConfig = [
                 { blankLine: 'always', prev: rulePaddingLine2, next: '*' },
                 { blankLine: 'always', prev: '*', next: rulePaddingLine2 },
                 { blankLine: 'any', prev: rulePaddingLine2, next: rulePaddingLine2 }
+            ],
+            'unicorn/filename-case': [
+                'error',
+                {
+                    'case': 'kebabCase'
+                }
             ]
         }
     }
