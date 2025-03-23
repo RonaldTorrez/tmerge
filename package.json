@@ -1,18 +1,19 @@
 {
 	"name": "transmerge",
-	"version": "1.0.0",
+	"version": "0.0.1",
 	"description": "",
 	"type": "module",
 	"scripts": {
-		"build": "rollpkg build",
+		"build": "rollpkg build --noStats",
 		"watch": "rollpkg watch",
 		"lint": "eslint --fix",
-		"prepublishOnly": "npm run build"
+		"prepublishOnly": "npm run build",
+		"prepare": "npm run build && husky install"
 	},
-	"keywords": [],
-	"author": "Ronald Torrez",
-	"license": "ISC",
-	"packageManager": "pnpm@10.6.5",
+	"dependencies": {
+		"commander": "^13.1.0",
+		"zod": "^3.24.2"
+	},
 	"devDependencies": {
 		"@commitlint/cli": "^19.8.0",
 		"@commitlint/config-conventional": "^19.8.0",
@@ -38,22 +39,19 @@
 			"@commitlint/config-conventional"
 		]
 	},
-	"pnpm": {
-		"onlyBuiltDependencies": [
-			"@parcel/watcher",
-			"core-js",
-			"core-js-pure",
-			"esbuild"
-		]
-	},
 	"main": "dist/transmerge.cjs.js",
 	"module": "dist/transmerge.esm.js",
 	"types": "dist/index.d.ts",
 	"sideEffects": false,
 	"files": [
-		"dist"
+		"dist",
+		"bin"
 	],
-	"dependencies": {
-		"zod": "^3.24.2"
-	}
+	"bin": {
+		"transmerge": "./bin/transmerge.js"
+	},
+	"keywords": [],
+	"author": "Ronald Torrez",
+	"license": "ISC",
+	"packageManager": "pnpm@10.6.5"
 }
