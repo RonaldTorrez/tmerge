@@ -29,7 +29,8 @@
 		"lint-staged": "^15.5.0",
 		"rollpkg": "^0.5.7",
 		"tslib": "^2.8.1",
-		"typescript": "^5.8.2"
+		"typescript": "^5.8.2",
+		"typescript-eslint": "^8.27.0"
 	},
 	"lint-staged": {
 		"*": [
@@ -55,5 +56,14 @@
 	"keywords": [],
 	"author": "Ronald Torrez",
 	"license": "ISC",
-	"packageManager": "pnpm@10.6.5"
+	"packageManager": "pnpm@10.6.5",
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"@parcel/watcher",
+			"core-js",
+			"core-js-pure",
+			"esbuild",
+			"fsevents"
+		]
+	}
 }

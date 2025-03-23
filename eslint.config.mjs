@@ -3,6 +3,7 @@ import stylistic from '@stylistic/eslint-plugin'
 import eslintPluginUnicorn from 'eslint-plugin-unicorn'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import tseslint from 'typescript-eslint'
 
 const __filename = fileURLToPath( import.meta.url )
 const __dirname = path.dirname( __filename )
@@ -14,6 +15,7 @@ const rulePaddingLine2 = [ 'const', 'import' ]
 const eslintConfig = [
     includeIgnoreFile( gitignorePath ),
     eslintPluginUnicorn.configs.all,
+    ...tseslint.configs.stylistic,
     {
         plugins: {
             '@stylistic': stylistic,
@@ -30,12 +32,6 @@ const eslintConfig = [
                 { blankLine: 'always', prev: rulePaddingLine2, next: '*' },
                 { blankLine: 'always', prev: '*', next: rulePaddingLine2 },
                 { blankLine: 'any', prev: rulePaddingLine2, next: rulePaddingLine2 }
-            ],
-            'unicorn/filename-case': [
-                'error',
-                {
-                    'case': 'kebabCase'
-                }
             ]
         }
     }

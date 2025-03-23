@@ -2,14 +2,14 @@ import { installCommand } from '@/commands/install.command'
 import { mergeCommand } from '@/commands/merge.command'
 import { unmergeCommand } from '@/commands/unmerge.command'
 import { Command } from 'commander'
-import pkg from '../package.json'
+import package_ from '../package.json'
 
 const program = new Command()
 
 program
-	.name( pkg.name )
-	.description( pkg.description )
-	.version( pkg.version )
+    .name( package_.name )
+    .description( package_.description )
+    .version( package_.version )
 
 program.addCommand( installCommand )
 program.addCommand( mergeCommand )
