@@ -1,6 +1,7 @@
 {
 	"extends": "rollpkg/configs/tsconfig.json",
 	"compilerOptions": {
+		"resolveJsonModule": true,
 		"baseUrl": "./",
 		"paths": {
 			"@/*": [

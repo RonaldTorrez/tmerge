@@ -1,13 +1,18 @@
+import { installCommand } from '@/commands/install.command'
+import { mergeCommand } from '@/commands/merge.command'
+import { unmergeCommand } from '@/commands/unmerge.command'
 import { Command } from 'commander'
+import pkg from '../package.json'
 
 const program = new Command()
 
 program
-	.name( 'transmerge' )
-	.description( 'Herramienta de línea de comandos para transmerge' )
-	.version( '1.0.0' )
-	.option( '-f, --file <path>', 'Especifica el archivo a procesar' )
-	.action( ( options ) => {
-		console.log( `Procesando el archivo: ${options.file}` )
-	} )
-	.parse( process.argv )
+	.name( pkg.name )
+	.description( pkg.description )
+	.version( pkg.version )
+
+program.addCommand( installCommand )
+program.addCommand( mergeCommand )
+program.addCommand( unmergeCommand )
+
+program.parse()
