@@ -1,0 +1,55 @@
+{
+	"name": "transmerge",
+	"version": "1.0.0",
+	"description": "",
+	"type": "module",
+	"scripts": {
+		"build": "rollpkg build",
+		"watch": "rollpkg watch",
+		"lint": "eslint --fix",
+		"prepublishOnly": "npm run build"
+	},
+	"keywords": [],
+	"author": "Ronald Torrez",
+	"license": "ISC",
+	"packageManager": "pnpm@10.6.5",
+	"devDependencies": {
+		"@commitlint/cli": "^19.8.0",
+		"@commitlint/config-conventional": "^19.8.0",
+		"@eslint/compat": "^1.2.7",
+		"@eslint/js": "^9.23.0",
+		"@stylistic/eslint-plugin": "^4.2.0",
+		"@types/node": "^22.13.11",
+		"eslint": "^9.23.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^15.5.0",
+		"rollpkg": "^0.5.7",
+		"tslib": "^2.8.1",
+		"typescript": "^5.8.2"
+	},
+	"lint-staged": {
+		"*": [
+			"pnpm lint"
+		]
+	},
+	"commitlint": {
+		"extends": [
+			"@commitlint/config-conventional"
+		]
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"@parcel/watcher",
+			"core-js",
+			"core-js-pure",
+			"esbuild"
+		]
+	},
+	"main": "dist/transmerge.cjs.js",
+	"module": "dist/transmerge.esm.js",
+	"types": "dist/index.d.ts",
+	"sideEffects": false,
+	"files": [
+		"dist"
+	]
+}

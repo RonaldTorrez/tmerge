@@ -1,0 +1,4 @@
+truncate -s 0 .temp
+
+pnpm lint
+pnpm build
