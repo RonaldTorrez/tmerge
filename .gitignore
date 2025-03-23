@@ -3,4 +3,5 @@ dist
 .idea
 .vscode
 
+.temp
  *.temp*
