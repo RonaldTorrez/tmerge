@@ -1,3 +1,5 @@
+// @ts-check
+
 import { includeIgnoreFile } from '@eslint/compat'
 import stylistic from '@stylistic/eslint-plugin'
 import eslintPluginUnicorn from 'eslint-plugin-unicorn'
@@ -15,15 +17,14 @@ const rulePaddingLine2 = [ 'const', 'import' ]
 const eslintConfig = [
     includeIgnoreFile( gitignorePath ),
     eslintPluginUnicorn.configs.all,
+    ...tseslint.configs.recommended,
     ...tseslint.configs.stylistic,
     {
         plugins: {
-            '@stylistic': stylistic,
-            '@stylistic/jsx': stylistic
+            '@stylistic': stylistic
         },
         rules: {
             '@stylistic/indent': [ 'error', 4 ],
-            '@stylistic/jsx/jsx-indent-props': [ 'error', 4 ],
             'padding-line-between-statements': [
                 'error',
                 { blankLine: 'always', prev: rulePaddingLine1, next: '*' },
