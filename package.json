@@ -12,7 +12,7 @@
 	"dependencies": {
 		"commander": "^13.1.0",
 		"radash": "^12.1.0",
-		"signale-logger": "^1.5.1",
+		"winston": "^3.17.0",
 		"zod": "^3.24.2"
 	},
 	"devDependencies": {

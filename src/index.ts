@@ -1,6 +1,7 @@
 import { installCommand } from '@/commands/install.command'
 import { mergeCommand } from '@/commands/merge.command'
 import { unmergeCommand } from '@/commands/unmerge.command'
+import Logger from '@/logger/logger'
 import { Command } from 'commander'
 import package_ from '../package.json'
 
@@ -16,3 +17,7 @@ program.addCommand( mergeCommand )
 program.addCommand( unmergeCommand )
 
 program.parse()
+
+const logger = Logger.get( { isVerbose: true } )
+
+logger.info( 'temp' )
