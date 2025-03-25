@@ -7,7 +7,8 @@
 		"build": "rollpkg build --noStats",
 		"watch": "rollpkg watch",
 		"lint": "eslint --fix",
-		"prepublishOnly": "npm run build"
+		"prepublishOnly": "npm run build",
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"commander": "^13.1.0",
