@@ -1,3 +1,4 @@
+import install from '@/actions/install'
 import { Command } from 'commander'
 
 export const installCommand = new Command( 'install' )
@@ -6,4 +7,5 @@ export const installCommand = new Command( 'install' )
     .option( '-o, --output <path>', 'Directorio de salida para los JSON', './locales' )
     .action( ( options ) => {
         console.log( options )
+        install()
     } )
