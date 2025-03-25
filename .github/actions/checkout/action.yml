@@ -1,0 +1,9 @@
+name: Checkout repo
+description: Wrapper for actions/checkout@v4
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v4
+      id: checkout
+      name: Checkout

@@ -1,0 +1,16 @@
+name: Node and PNPM
+description: Wrapper for actions/setup-node@v4 and pnpm/action-setup@v4
+
+inputs:
+  registry-url:
+    required: false
+    default: ""
+    description: NPM registry URL
+
+runs:
+  using: "composite"
+  steps:
+    - uses: ./.github/actions/pnpm
+    - uses: ./.github/actions/setup-node
+      with:
+        registry-url: ${{ inputs.registry-url }}
