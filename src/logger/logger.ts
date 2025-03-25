@@ -1,4 +1,4 @@
-import { createLogger, format, Logger as WinstonLogger, transports } from 'winston'
+import { createLogger, format, Logger, transports } from 'winston'
 
 const formatError = format( ( info ) => {
     if ( info.error instanceof Error ) {
@@ -17,14 +17,14 @@ const formatError = format( ( info ) => {
     return info
 } )
 
-class Logger {
-    private static instance: WinstonLogger
+class LoggerInstance {
+    private static instance: Logger
 
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     private constructor() {}
 
-    public static get( { isVerbose = false }: { isVerbose?: boolean } ): WinstonLogger {
-        if ( !Logger.instance ) {
+    public static get( { isVerbose = false }: { isVerbose?: boolean } ): Logger {
+        if ( !LoggerInstance.instance ) {
             const consoleFormat = format.combine(
                 format.cli()
             )
@@ -37,7 +37,7 @@ class Logger {
                 format.json()
             )
 
-            Logger.instance = createLogger( {
+            LoggerInstance.instance = createLogger( {
                 level: isVerbose ? 'debug' : 'error',
                 transports: [
                     new transports.Console( { format: consoleFormat } ),
@@ -59,8 +59,8 @@ class Logger {
             } )
         }
 
-        return Logger.instance
+        return LoggerInstance.instance
     }
 }
 
-export default Logger
+export default LoggerInstance
