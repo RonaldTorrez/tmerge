@@ -1,3 +1,4 @@
+import unmerge from '@/commands/actions/unmerge'
 import { Command } from 'commander'
 
 export const unmergeCommand = new Command( 'unmerge' )
@@ -6,4 +7,5 @@ export const unmergeCommand = new Command( 'unmerge' )
     .option( '-o, --output <path>', 'Directorio de salida para los JSON', './locales' )
     .action( ( options ) => {
         console.log( options )
+        unmerge()
     } )

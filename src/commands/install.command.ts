@@ -1,4 +1,4 @@
-import install from '@/actions/install'
+import install from '@/commands/actions/install'
 import { Command } from 'commander'
 
 export const installCommand = new Command( 'install' )
