@@ -1,21 +1,5 @@
+import { BaseError } from '@/errors/error'
 import { createLogger, format, Logger, transports } from 'winston'
-
-const formatError = format( ( info ) => {
-    if ( info.error instanceof Error ) {
-        // @ts-expect-error Property 'rest' extracted from type 'Error' or type 'ErrorConstructor'
-        const { message, stack, name, ...rest } = info.error as never
-        const extraProperties = Object.keys( rest ).length > 0 ? rest : undefined
-
-        info.error = {
-            name,
-            message,
-            stack,
-            ...( extraProperties && { extra: extraProperties } )
-        }
-    }
-
-    return info
-} )
 
 class LoggerInstance {
     private static instance: Logger
@@ -30,17 +14,18 @@ class LoggerInstance {
             )
 
             const fileFormat = format.combine(
-                formatError(),
                 format.timestamp(),
-                format.errors( { stack: true } ),
-                format.metadata( { fillExcept: [ 'message', 'level', 'timestamp' ] } ),
                 format.json()
             )
 
             LoggerInstance.instance = createLogger( {
                 level: isVerbose ? 'debug' : 'error',
+                format: BaseError.fullFormat(),
+
                 transports: [
-                    new transports.Console( { format: consoleFormat } ),
+                    new transports.Console( {
+                        format: consoleFormat
+                    } ),
                     new transports.File( {
                         dirname: './logs',
                         filename: 'tmerge.log',
