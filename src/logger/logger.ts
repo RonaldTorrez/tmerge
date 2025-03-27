@@ -1,4 +1,5 @@
 import { BaseError } from '@/errors/error'
+import { LoggerGet, LoggerGetSchema } from '@/schemas/logger/logger.schema'
 import { createLogger, format, Logger, transports } from 'winston'
 
 class LoggerInstance {
@@ -7,7 +8,11 @@ class LoggerInstance {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     private constructor() {}
 
-    public static get( { isVerbose = false }: { isVerbose?: boolean } ): Logger {
+    public static get(
+        options: LoggerGet
+    ): Logger {
+        const { isVerbose } = LoggerGetSchema.parse( options )
+
         if ( !LoggerInstance.instance ) {
             const consoleFormat = format.combine(
                 format.cli()
