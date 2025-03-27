@@ -15,8 +15,8 @@ jobs:
     outputs:
       publish: ${{ steps.check_version.outputs.publish }}
     steps:
-      - name: Checkout
-        uses: ./.github/actions/checkout
+      - name: Run Checkout
+        uses: actions/checkout@v4
 
       - name: Get previous commit SHA
         id: prev_commit
@@ -45,8 +45,8 @@ jobs:
     if: needs.prepare.outputs.publish == 'true'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: ./.github/actions/checkout
+      - name: Run Checkout
+        uses: actions/checkout@v4
 
       - name: Setup Node
         uses: ./.github/actions/node-pnpm

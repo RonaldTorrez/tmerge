@@ -9,8 +9,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: ./.github/actions/checkout
+      - name: Run Checkout
+        uses: actions/checkout@v4
 
       - name: Setup Node
         uses: ./.github/actions/node-pnpm
