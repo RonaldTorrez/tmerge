@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    runs-on: [ self-hosted, ubuntu-latest ]
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: ./.github/actions/checkout
@@ -18,8 +18,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Lint
+      - name: Run Lint
         run: pnpm lint
 
-      - name: Build
+      - name: Run Build
         run: pnpm build
