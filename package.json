@@ -13,6 +13,8 @@
 	"dependencies": {
 		"commander": "^13.1.0",
 		"modern-errors": "^7.0.2",
+		"modern-errors-bugs": "^5.0.0",
+		"modern-errors-clean": "^6.0.0",
 		"modern-errors-winston": "^5.0.1",
 		"radash": "^12.1.0",
 		"winston": "^3.17.0",
@@ -21,7 +23,6 @@
 	"devDependencies": {
 		"@commitlint/cli": "^19.8.0",
 		"@commitlint/config-conventional": "^19.8.0",
-		"@duplojs/zod-accelerator": "^2.6.2",
 		"@eslint/compat": "^1.2.7",
 		"@eslint/js": "^9.23.0",
 		"@stylistic/eslint-plugin": "^4.2.0",
