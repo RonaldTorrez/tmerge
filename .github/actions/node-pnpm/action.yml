@@ -14,7 +14,6 @@ runs:
       id: pnpm
       uses: pnpm/action-setup@v4
       with:
-        version: 10
         run_install: |
           - args: [--frozen-lockfile, --strict-peer-dependencies]
 
