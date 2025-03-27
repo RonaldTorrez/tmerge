@@ -15,9 +15,6 @@ jobs:
       - name: Setup Node
         uses: ./.github/actions/node-pnpm
 
-      - name: Install dependencies
-        run: pnpm install
-
       - name: Run Lint
         run: pnpm lint
 

@@ -24,3 +24,7 @@ runs:
         registry-url: ${{ inputs.registry-url }}
         node-version: 22
         cache: "pnpm"
+
+    - name: Install dependencies
+      run: pnpm install
+      shell: bash
