@@ -1,4 +1,4 @@
-import { installCommand } from '@/commands/install.command'
+import { initCommand } from '@/commands/init.command'
 import { mergeCommand } from '@/commands/merge.command'
 import { unmergeCommand } from '@/commands/unmerge.command'
 import { UnknownError } from '@/errors/error'
@@ -14,7 +14,7 @@ program
     .description( package_.description )
     .version( package_.version )
 
-program.addCommand( installCommand )
+program.addCommand( initCommand )
 program.addCommand( mergeCommand )
 program.addCommand( unmergeCommand )
 
