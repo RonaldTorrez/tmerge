@@ -25,6 +25,7 @@ const eslintConfig = [
         },
         rules: {
             '@stylistic/indent': [ 'error', 4 ],
+            '@stylistic/no-trailing-spaces': [ 'error', { skipBlankLines: false } ],
             'padding-line-between-statements': [
                 'error',
                 { blankLine: 'always', prev: rulePaddingLine1, next: '*' },
