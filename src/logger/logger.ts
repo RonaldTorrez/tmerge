@@ -1,6 +1,27 @@
 import { BaseError } from '@/errors/error'
 import { LoggerGet, LoggerGetSchema } from '@/schemas/logger/logger.schema'
 import { createLogger, format, Logger, transports } from 'winston'
+import { fromZodError, isZodErrorLike } from 'zod-validation-error'
+
+const zodErrorFormatter = format( ( info ) => {
+    if ( isZodErrorLike( info ) ) {
+        return {
+            ...info,
+            message: fromZodError( info ).toString()
+        }
+    }
+
+    if ( isZodErrorLike( info?.message ) ) {
+        const zodError = info.message
+
+        return {
+            ...info,
+            message: fromZodError( zodError ).toString()
+        }
+    }
+
+    return info
+} )
 
 class LoggerInstance {
     private static instance: Logger
@@ -25,7 +46,10 @@ class LoggerInstance {
 
             LoggerInstance.instance = createLogger( {
                 level: isVerbose ? 'debug' : 'error',
-                format: BaseError.fullFormat(),
+                format: format.combine(
+                    zodErrorFormatter(),
+                    BaseError.fullFormat()
+                ),
 
                 transports: [
                     new transports.Console( {
