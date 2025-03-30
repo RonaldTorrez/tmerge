@@ -1,3 +1,4 @@
+import { Logger } from 'winston'
 import { z } from 'zod'
 
 export const LoggerGetSchema = z.object( {
@@ -9,3 +10,8 @@ export const LoggerGetSchema = z.object( {
 } )
 
 export type LoggerGet = z.input<typeof LoggerGetSchema>
+
+export const LoggerSchema = z.object( {
+    logger: z.instanceof( Logger )
+        .describe( 'Logger instance' )
+} )
