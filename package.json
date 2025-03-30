@@ -8,10 +8,13 @@
 		"watch": "rollpkg watch",
 		"lint": "eslint --fix",
 		"prepublishOnly": "npm run build",
-		"prepare": "husky"
+		"prepare": "husky && rollpkg build --noStats",
+		"check:deps": "pnpx depcheck || true",
+		"check:deps:json": "pnpx depcheck --json > depcheck.temp.json"
 	},
 	"dependencies": {
 		"commander": "^13.1.0",
+		"cosmiconfig": "^9.0.0",
 		"modern-errors": "^7.0.2",
 		"modern-errors-bugs": "^5.0.0",
 		"modern-errors-clean": "^6.0.0",
@@ -56,7 +59,7 @@
 		"bin"
 	],
 	"bin": {
-		"tmerge": "bin/tmerge.js"
+		"tmerge": "bin/cli.js"
 	},
 	"keywords": [],
 	"author": "Ronald Torrez",

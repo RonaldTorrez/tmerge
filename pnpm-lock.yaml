@@ -11,6 +11,9 @@ importers:
       commander:
         specifier: ^13.1.0
         version: 13.1.0
+      cosmiconfig:
+        specifier: ^9.0.0
+        version: 9.0.0(typescript@5.8.2)
       modern-errors:
         specifier: ^7.0.2
         version: 7.0.2
