@@ -35,9 +35,7 @@ class LoggerInstance {
         const { isVerbose } = LoggerGetSchema.parse( options )
 
         if ( !LoggerInstance.instance ) {
-            const consoleFormat = format.combine(
-                format.cli()
-            )
+            const consoleFormat = format.cli()
 
             const fileFormat = format.combine(
                 format.timestamp(),

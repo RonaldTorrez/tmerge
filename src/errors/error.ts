@@ -7,6 +7,10 @@ export const BaseError = ModernError.subclass( 'BaseError', {
     plugins: [ modernErrorsWinston, modernErrorsBugs, modernErrorsClean ]
 } )
 
+export const FSError = BaseError.subclass( 'FSError' )
+
+export const ExplorerError = BaseError.subclass( 'ExplorerError' )
+
 export const UnknownError = BaseError.subclass( 'UnknownError', {
     bugs: 'https://github.com/larafriend/tmerge/issues'
 } )

@@ -1,4 +1,3 @@
-import merge from '@/commands/actions/merge'
 import { Command } from 'commander'
 
 export const mergeCommand = new Command( 'merge' )
@@ -7,5 +6,5 @@ export const mergeCommand = new Command( 'merge' )
     .option( '-o, --output <path>', 'Directorio de salida para los JSON', './locales' )
     .action( ( options ) => {
         console.log( options )
-        merge()
+        // merge()
     } )

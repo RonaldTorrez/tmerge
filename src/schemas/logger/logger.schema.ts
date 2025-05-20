@@ -12,6 +12,6 @@ export const LoggerGetSchema = z.object( {
 export type LoggerGet = z.input<typeof LoggerGetSchema>
 
 export const LoggerSchema = z.object( {
-    logger: z.instanceof( Logger )
+    Logger: z.instanceof( Logger )
         .describe( 'Logger instance' )
 } )
