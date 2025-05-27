@@ -18,31 +18,31 @@
 		"cosmiconfig-typescript-loader": "^6.1.0",
 		"fast-glob": "^3.3.3",
 		"fs-extra": "^11.3.0",
-		"modern-errors": "^7.0.2",
-		"modern-errors-bugs": "^5.0.0",
-		"modern-errors-clean": "^6.0.0",
-		"modern-errors-winston": "^5.0.1",
+		"modern-errors": "^7.1.0",
+		"modern-errors-bugs": "^5.0.1",
+		"modern-errors-clean": "^6.0.1",
+		"modern-errors-winston": "^5.0.2",
 		"radash": "^12.1.0",
 		"winston": "^3.17.0",
-		"zod": "^3.24.2",
-		"zod-validation-error": "^3.4.0"
+		"zod": "^3.25.28",
+		"zod-validation-error": "^3.4.1"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^19.8.0",
-		"@commitlint/config-conventional": "^19.8.0",
-		"@eslint/compat": "^1.2.7",
-		"@eslint/js": "^9.23.0",
+		"@commitlint/cli": "^19.8.1",
+		"@commitlint/config-conventional": "^19.8.1",
+		"@eslint/compat": "^1.2.9",
+		"@eslint/js": "^9.27.0",
 		"@stylistic/eslint-plugin": "^4.2.0",
 		"@types/fs-extra": "^11.0.4",
-		"@types/node": "^22.13.11",
-		"eslint": "^9.23.0",
+		"@types/node": "^22.15.21",
+		"eslint": "^9.27.0",
 		"eslint-plugin-unicorn": "^57.0.0",
 		"husky": "^9.1.7",
-		"lint-staged": "^15.5.0",
+		"lint-staged": "^15.5.2",
 		"rollpkg": "^0.5.7",
 		"tslib": "^2.8.1",
-		"typescript": "^5.8.2",
-		"typescript-eslint": "^8.27.0"
+		"typescript": "^5.8.3",
+		"typescript-eslint": "^8.32.1"
 	},
 	"lint-staged": {
 		"*": [
@@ -68,7 +68,7 @@
 	"keywords": [],
 	"author": "Ronald Torrez",
 	"license": "ISC",
-	"packageManager": "pnpm@10.7.0",
+	"packageManager": "pnpm@10.11.0",
 	"pnpm": {
 		"onlyBuiltDependencies": [
 			"@parcel/watcher",
