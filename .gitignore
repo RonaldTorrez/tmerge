@@ -4,5 +4,4 @@ dist
 .vscode
 
 logs
-lang*
 *.temp*
