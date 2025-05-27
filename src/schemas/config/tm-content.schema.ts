@@ -2,7 +2,14 @@ import { StringNoNSchema } from '@/schemas/utils/string'
 import { z } from 'zod'
 
 const TMContentBaseSchema = z.object( {
-    _name: StringNoNSchema.optional()
+    _tm_omit: z.boolean()
+        .default( false )
+        .describe(
+            'If true, this content will be omitted from the translation management system.' ),
+    _tm_namespace: z.string()
+        .default( '' )
+        .describe(
+            'This is used to group related translations together.' )
 } )
 
 const RecursiveValueSchema: z.ZodType = z.lazy( () =>
